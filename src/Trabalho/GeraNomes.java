@@ -7,7 +7,6 @@ abstract class GeraNomes {
 		String[] Finais = 			{"king","dgey",	"shrew","kans",	"row",	"drill","queen","fairy","pix",	"puff",	"bat",	"oom",	"sect",	"moth"};//tem 14
 		int Tamanho = (int)(Math.random()*2 + 1 );
 		int index = (int)(Math.random()*23);
-		System.out.println(index);
 		String nome=Iniciais[index];
 		
 		while ( (Tamanho--)>1 ) {
