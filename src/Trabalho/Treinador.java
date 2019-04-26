@@ -4,5 +4,5 @@ public class Treinador {
 	private Pokemon[] Pokemons;
 	private String Nome;
 	private Item[] Items;
-	int AAAAAAAAAAAAAAAAAAAAAAAAAAA;
+	int AAAAA34234234234234234234;
 }
