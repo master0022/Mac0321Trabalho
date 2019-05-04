@@ -5,4 +5,9 @@ public class Ataque {
 	private int Poder;
 	private int Prioridade;
 	
+	public Ataque() {
+		Nome = GeraNomes.NomeAtaque();
+		Poder = (int)(Math.random()*4)*(int)(Math.random()*6)*(int)(Math.random()*3);
+		Prioridade = (int)(Math.random()*1000);
+	}
 }
