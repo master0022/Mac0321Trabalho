@@ -26,4 +26,9 @@ abstract class GeraNomes {
 		nome+=" " + Finais[index];
 		return nome;
 	}
+	public static String NomeTreinador() {
+		String[] Nomes = {"Kaue", "Ricardo", "Marcelo", "Ash", "Joseph", "Luiz", "Marcos", "Rogerinho", " Martha", "Dilma", "Bolsonaro", "Danilo", "Popeye", "Mickey", "Steven", "Steve", "Boris", "Yuri", "Iuri", "Sover", "Mican", "Toucan", "Poe", "Pringles", "Ruffles", "Diamante Negro", "Microsoft", "Andrez", "Coisa", "Eloísa", "Luíza", "Isabella", "Fernanda", "Giovana", "Giovane", "Tuga", "Tuca", "Puca", "Garu", "Scanfenfan", "Scafen", "Nhec"};
+		return Nomes[(int)(Math.random()*42)];
+		
+	}
 }
