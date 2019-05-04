@@ -33,8 +33,12 @@ public class Pokemon {
 	public String GetNome() {
 		return Nome;
 	}
-	private Ataque[] GetAtaques() {
-		return Ataques;
+	public Ataque GetAtaque(int index) {
+		return Ataques[index];
+	}
+	
+	public void SofreAtaque(Ataque ataque) {
+		this.HP_Atual-=ataque.GetPoder();
 	}
 	
 }
