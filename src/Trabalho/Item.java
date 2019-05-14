@@ -9,5 +9,11 @@ abstract public class Item {
 		this.Quantidade=Quantidade;
 	}
 	
+	public int GetQuantidade() {
+		return Quantidade;
+	}
 	
+	public void UsaUm() {
+		this.Quantidade--;
+	}
 }

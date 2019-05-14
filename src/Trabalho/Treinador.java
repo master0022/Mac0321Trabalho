@@ -4,7 +4,7 @@ public class Treinador {
 	private Pokemon[] pokemons;
 	private int no_pokemons;
 	private String nome;
-	private Item[] items;
+	private Pocao pocao;
 	private boolean selvagem,pokemon_ativo_morto;
 	private int pokemon_ativo;
 	
@@ -22,8 +22,7 @@ public class Treinador {
 			this.pokemons[i-1]=Pokemon.CriaPokemon();
 		}
 		
-		this.items[0]= new Pokebola(no_pokebolas);
-		this.items[1]= new Pocao(no_pocoes);
+		this.pocao = new Pocao(10);//todo treinador começa com 10 pocoes.
 		
 	}
 	
@@ -32,8 +31,33 @@ public class Treinador {
 	}
 	
 	public Evento Decidir_Acao(Treinador Oponente) {// precisa deixar generico, e fazer o usuario poder escolher a acao, ou ser aleatorio pra selvagem.
-		Evento_Atacar a = new Evento_Atacar(this,Oponente,pokemons[pokemon_ativo].GetAtaque(0));
-		return a;
+		boolean decidiu = false;
+		while (decidiu==false) {
+			
+			int caso = (int) Math.round( Math.random()*3);
+			
+			switch (caso) {
+			
+				case 0:// treinador decide atacar
+					return new Evento_Atacar(this,Oponente,pokemons[pokemon_ativo].GetAtaque((int) Math.round( Math.random()*3) ));
+					
+					
+				case 1://treinador decide usar pocao
+					if (pocao.GetQuantidade() != 0) {
+						return new Evento_Pocao(this, Oponente, pocao);
+					}
+					break;
+				
+				case 2://treinador decide fugir
+					return new Evento_Fugir(this,Oponente);
+					
+				case 4://treinador decide trocar para o proximo pokemon, E PODE trocar.
+					for (int i=0; i<no_pokemons; i++) {
+						if( pokemons[i].GetHP_Atual()>0 && i!=pokemon_ativo )return new Evento_TrocarPokemon(this,Oponente);
+					}
+			}
+		}
+		return null;//nao deveria chegar aqui
 	}
 	
 	public void SofreAtaque(Ataque ataque) {
