@@ -8,6 +8,7 @@ public class Treinador {
 	private boolean selvagem,pokemon_ativo_morto;
 	private int pokemon_ativo;
 	
+	private boolean FUGIU;
 	
 	private Treinador(int no_pokemons, String nome, int no_pokebolas, int no_pocoes, boolean selvagem) {
 		
@@ -16,6 +17,7 @@ public class Treinador {
 		this.nome=nome;
 		this.pokemon_ativo=0;
 		this.pokemon_ativo_morto=false;
+		this.FUGIU=false;
 		for ( int i= no_pokemons;i>0;i--) {
 			this.pokemons[i-1]=Pokemon.CriaPokemon();
 		}
@@ -37,6 +39,15 @@ public class Treinador {
 	public void SofreAtaque(Ataque ataque) {
 		pokemons[pokemon_ativo].SofreAtaque(ataque);
 		if ( pokemons[pokemon_ativo].GetHP_Atual() <= 0 )pokemon_ativo_morto=true;
+	}
+	
+	public void UsaPocao(Pocao pocao) {
+		pokemons[pokemon_ativo].UsaPocao(pocao);
+	}
+	
+	public void Fugir() {
+		this.FUGIU=true;
+		System.out.println("O treinador "+ nome+ " fugiu da batalha !");
 	}
 	
 }

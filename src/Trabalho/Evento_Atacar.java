@@ -8,6 +8,6 @@ public class Evento_Atacar extends Evento {
 	}
 	
 	public void Executar() {
-		
+		alvo.SofreAtaque(ataque);
 	}
 }

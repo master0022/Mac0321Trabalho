@@ -41,4 +41,8 @@ public class Pokemon {
 		this.HP_Atual-=ataque.GetPoder();
 	}
 	
+	public void UsaPocao(Pocao pocao) {
+		this.HP_Atual+=pocao.GetPoder();
+	}
+	
 }

@@ -1,9 +1,9 @@
 package Trabalho;
 
 public abstract class Evento {
-	private Treinador ativo;
-	private Treinador alvo;
-	private int prioridade;
+	protected Treinador ativo;
+	protected Treinador alvo;
+	protected int prioridade;
 	
 	public Evento(Treinador ativo, Treinador alvo, int prioridade) {
 		this.ativo=ativo;
