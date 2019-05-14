@@ -5,10 +5,12 @@ public class Pokemon {
 	private int HP_Max;
 	private String Nome;
 	private Ataque[] Ataques;
+	private boolean morto;
 	
 	private Pokemon() {
 		HP_Max = (int)(Math.random()*5) * (int)(Math.random()*6)*(int)(Math.random()*7);
 		HP_Atual=HP_Max;
+		morto=false;
 		Nome= GeraNomes.NomePokemon();
 		Ataques = new Ataque[4];
 		Ataques[1]= new Ataque();
@@ -39,10 +41,18 @@ public class Pokemon {
 	
 	public void SofreAtaque(Ataque ataque) {
 		this.HP_Atual-=ataque.GetPoder();
+		if (this.HP_Atual<=0) {
+			this.HP_Atual=0;
+			this.morto=true;
+		}
 	}
 	
 	public void UsaPocao(Pocao pocao) {
 		this.HP_Atual+=pocao.GetPoder();
+		if ( this.HP_Atual>this.HP_Max)this.HP_Atual=this.HP_Max;
 	}
 	
+	public boolean VerificaMorto() {
+		return morto;
+	}
 }
