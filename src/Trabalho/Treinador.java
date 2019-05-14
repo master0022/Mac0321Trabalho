@@ -7,6 +7,7 @@ public class Treinador {
 	private Pocao pocao;
 	private boolean selvagem,pokemon_ativo_morto;
 	private int pokemon_ativo;
+	private int indice;
 	
 	private boolean FUGIU;
 	
@@ -75,6 +76,10 @@ public class Treinador {
 	}
 	
 	public void TrocarPokemonAtivo() {
-		
+		indice = java.math.random.no_pokemons();
+		while(pokemon_ativo!=indice && morto==false) indice = java.math.random.no_pokemons();
+		pokemon_ativo = indice;
+		System.out.println("O treinador "+ nome+ "trocou de pokemon !");	
 	}
+	
 }
