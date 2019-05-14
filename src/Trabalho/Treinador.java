@@ -50,4 +50,7 @@ public class Treinador {
 		System.out.println("O treinador "+ nome+ " fugiu da batalha !");
 	}
 	
+	public void TrocarPokemonAtivo() {
+		
+	}
 }

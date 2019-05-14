@@ -8,6 +8,6 @@ public class Evento_TrocarPokemon extends Evento {
 	}
 	
 	public void Executar() {
-		this.ativo.TrocaPokemonAtivo();
+		this.ativo.TrocarPokemonAtivo();
 	}
 }
