@@ -52,23 +52,25 @@ public class Treinador {
 			
 			
 				if (caso<=70) {// treinador decide atacar
-					System.out.println("O treinador "+ nome+ " decidiu atacar !");
+					if(selvagem==false) System.out.println("O treinador "+ nome+ " decidiu atacar !");
+					else System.out.println("O pokemon " +pokemons[0].GetNome()+ " decidiu atacar !");
 					return new Evento_Atacar(this,Oponente,pokemons[pokemon_ativo].GetAtaque((int) Math.round( Math.random()*3) ));
 				}
 					
 				if (caso <= 90) {//treinador decide usar pocao
-					if (items[1].GetQuantidade() != 0) {
+					if (items[1].GetQuantidade() != 0 && selvagem==false) {
 						System.out.println("O treinador "+ nome+ " decidiu usar poção !");
 						return new Evento_Pocao(this, Oponente, (Pocao) items[1]);
 					}
 				}
 				
 				if ( caso ==100 ) {//treinador decide fugir
-					System.out.println("O treinador "+ nome+ " decidiu fugir !");
+					if(selvagem==false) System.out.println("O treinador "+ nome+ " decidiu fugir !");
+					else System.out.println("O pokemon " +pokemons[0].GetNome()+ " decidiu fugir !");
 					return new Evento_Fugir(this,Oponente);
 				}
 				
-				if ( caso>90 && caso <100) {//treinador decide trocar para o proximo pokemon, E PODE trocar.
+				if ( caso>90 && caso <100 && selvagem==false) {//treinador decide trocar para o proximo pokemon, E PODE trocar.
 					for (int i=0; i<no_pokemons; i++) {
 						if( pokemons[i].GetHP_Atual()>0 && i!=pokemon_ativo ) {
 							System.out.println("O treinador "+ nome+ " decidiu trocar de pokemon !");
@@ -142,5 +144,8 @@ public class Treinador {
 	}
 	public int GetNo_Pokemons() {
 		return no_pokemons;
+	}
+	public boolean getSelvagem() {
+		return selvagem;
 	}
 }
