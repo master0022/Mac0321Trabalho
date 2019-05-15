@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 abstract public class Input {
 	
-	static public Evento InputBatalha() {
+	static public Evento InputBatalha(Treinador treinador) {
 		
 		Scanner Input = new Scanner(System.in);
 		String acao = "";

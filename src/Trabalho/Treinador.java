@@ -43,7 +43,7 @@ public class Treinador {
 	public Evento Decidir_Acao(Treinador Oponente) {// precisa deixar generico, e fazer o usuario poder escolher a acao, ou ser aleatorio pra selvagem.
 		boolean decidiu = false;
 		
-		if ( this.player==true)return Input.InputBatalha();
+		if ( this.player==true)return Input.InputBatalha( this );
 		while (decidiu==false) {
 			
 			int caso = (int) Math.round( Math.random()*100);
