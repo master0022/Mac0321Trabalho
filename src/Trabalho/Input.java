@@ -46,6 +46,7 @@ abstract public class Input {
 			
 			if ( acao.equals("4")) {
 				System.out.println(" Voce decidiu trocar de pokemon, escolha um pokemon a seguir: ");
+				treinador.getPokemons();
 				//fazer varios prints com nome + HP_ATUAl do pokemon, e varios ifs que dao eventos diferentes.
 				int indice=0;
 				return new Evento_TrocarPokemon(treinador, oponente,indice);

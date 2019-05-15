@@ -8,8 +8,8 @@ public class TesteGeral {
 		Treinador oponente = new Treinador(3,"Nao o Ash",true);
 		while (n>1) 
 		{
-		eu = new Treinador(2,"Ash",false);
-		oponente = new Treinador(1,"Nao o Ash",true);
+		eu = new Treinador(6,"Ash",false);
+		oponente = new Treinador(4,"Nao o Ash",true);
 		eu.SetPlayer();
 		Batalha.Acontece(eu, oponente);
 		eu=null;

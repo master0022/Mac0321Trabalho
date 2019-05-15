@@ -133,4 +133,9 @@ public class Treinador {
 	public void SetPlayer() {
 		this.player=true;
 	}
+	
+	public void getPokemons() {
+		for(int i=0; i<no_pokemons; i++) System.out.println(+(i+1)+"- " +pokemons[i].GetNome()+" HP "+ pokemons[i].GetHP_Atual() );
+	}
+	
 }
