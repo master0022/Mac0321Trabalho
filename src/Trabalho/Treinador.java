@@ -23,7 +23,7 @@ public class Treinador {
 		this.FUGIU=false;
 		this.player=false;
 		
-		this.pokemons=new Pokemon[6];
+		this.pokemons=new Pokemon[no_pokemons];
 		for ( int i= 0;i<no_pokemons;i++) {
 			this.pokemons[i]=Pokemon.CriaPokemon();
 		}
@@ -134,8 +134,13 @@ public class Treinador {
 		this.player=true;
 	}
 	
-	public void getPokemons() {
+	public void PrintaPokemons() {
 		for(int i=0; i<no_pokemons; i++) System.out.println(+(i+1)+"- " +pokemons[i].GetNome()+" HP "+ pokemons[i].GetHP_Atual() );
 	}
-	
+	public Pokemon GetPokemon(int indice) {
+		return pokemons[indice];
+	}
+	public int GetNo_Pokemons() {
+		return no_pokemons;
+	}
 }

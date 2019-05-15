@@ -8,7 +8,7 @@ public class Pokemon {
 	private boolean morto;
 	
 	private Pokemon() {
-		HP_Max = (int)(Math.random()*4+1) * (int)(Math.random()*4+1)*(int)(Math.random()*5+1)* (int)(Math.random()*4+1) * (int)(Math.random()*5+1);
+		HP_Max = (int)( (Math.random()*40+200) * (Math.random()*40+300)* (Math.random()*15+100) * (Math.random()*25+200)/54000000 + Math.random()*200 ); // Esses pokemons tem mais vida que meu Winter Orber no Path of Exile KKKKK.
 		HP_Atual=HP_Max;
 		morto=false;
 		Nome= GeraNomes.NomePokemon();
