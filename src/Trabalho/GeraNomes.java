@@ -18,8 +18,8 @@ abstract class GeraNomes {
 		return nome;
 	}
 	public static String NomeAtaque() {
-		String[] Iniciais = 		{"Investida",	"Soco",	"Raio",	"Rugido",	"Tapa",	"Peido",	"Sopro",	"Chute",	"Esfera",	"Apito",	"Lâmina",	"Tempestade",	"Tornado",	"Guarda",	"Promessa",	"Dança",	"Sonho",	"Pesadelo",	"Rajada",	"Chicote",	"Bomba",	"Parede",	"Pó"}; //tem 23
-		String[] Finais = 		{"de fogo","de água",	"mortal","do infinito",	"de raio",	"do sono","atordoante","de pétalas","de folhas",	"de pedra",	"de semente",	"de madeira",	"ofuscante",	"flamejante"};//tem 14
+		String[] Iniciais = 		{"Investida",	"Soco",	"Raio",	"Rugido",	"Tapa",	"Peido",	"Sopro",	"Chute",	"Esfera",	"Apito",	"Lamina",	"Tempestade",	"Tornado",	"Guarda",	"Promessa",	"Danca",	"Sonho",	"Pesadelo",	"Rajada",	"Chicote",	"Bomba",	"Parede",	"Rajada"}; //tem 23
+		String[] Finais = 		{"de fogo","de Agua",	"mortal","do infinito",	"de raio",	"do sono","atordoante","de petalas","de folhas",	"de pedra",	"de semente",	"de madeira",	"ofuscante",	"flamejante"};//tem 14
 		int index = (int)(Math.random()*23);
 		String nome=Iniciais[index];
 		index = (int)(Math.random()*14);

@@ -8,7 +8,7 @@ public class Pokemon {
 	private boolean morto;
 	
 	private Pokemon() {
-		HP_Max = (int)(Math.random()*5+1) * (int)(Math.random()*6+1)*(int)(Math.random()*7+1);
+		HP_Max = (int)(Math.random()*4+1) * (int)(Math.random()*4+1)*(int)(Math.random()*5+1)* (int)(Math.random()*4+1) * (int)(Math.random()*5+1);
 		HP_Atual=HP_Max;
 		morto=false;
 		Nome= GeraNomes.NomePokemon();
