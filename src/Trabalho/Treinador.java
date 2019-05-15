@@ -4,7 +4,7 @@ public class Treinador {
 	private Pokemon[] pokemons;
 	private int no_pokemons;
 	private String nome;
-	private Pocao pocao;
+	private Item[] items;
 	private boolean selvagem,pokemon_ativo_morto,player;
 	private int pokemon_ativo;
 	private boolean todos_mortos;
@@ -28,8 +28,9 @@ public class Treinador {
 			this.pokemons[i]=Pokemon.CriaPokemon();
 		}
 		
-		this.pocao = new Pocao(10);//todo treinador começa com 10 pocoes.
-		
+		this.items = new Item[2];//todo treinador começa com 10 pocoes e pokebolas.
+		this.items[0] = new Pokebola(10);
+		this.items[1] = new Pocao(10);
 	}
 	
 	public Pokemon GetPokemon_Ativo() {
@@ -43,7 +44,7 @@ public class Treinador {
 	public Evento Decidir_Acao(Treinador Oponente) {// precisa deixar generico, e fazer o usuario poder escolher a acao, ou ser aleatorio pra selvagem.
 		boolean decidiu = false;
 		
-		if ( this.player==true)return Input.InputBatalha( this );
+		if ( this.player==true)return Input.InputBatalha( this, Oponente );
 		while (decidiu==false) {
 			
 			int caso = (int) Math.round( Math.random()*100);
@@ -56,9 +57,9 @@ public class Treinador {
 				}
 					
 				if (caso <= 90) {//treinador decide usar pocao
-					if (pocao.GetQuantidade() != 0) {
+					if (items[1].GetQuantidade() != 0) {
 						System.out.println("O treinador "+ nome+ " decidiu usar poção !");
-						return new Evento_Pocao(this, Oponente, pocao);
+						return new Evento_Pocao(this, Oponente, (Pocao) items[1]);
 					}
 				}
 				
@@ -111,12 +112,22 @@ public class Treinador {
 		System.out.println("O treinador "+ nome+ " trocou de pokemon !");
 	}
 	
+	public void TrocarPokemonAtivo(int indice) {
+		
+		pokemon_ativo = indice;
+		System.out.println("O treinador "+ nome+ " trocou de pokemon !");
+	}
+	
 	public boolean Fugiu() {
 		return this.FUGIU;
 	}
 	
 	public boolean Todos_Os_Pokemons_Mortos() {
 		return this.todos_mortos;
+	}
+	
+	public Item[] GetItems() {
+		return items;
 	}
 	
 	public void SetPlayer() {
