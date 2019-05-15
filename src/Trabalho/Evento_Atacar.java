@@ -8,10 +8,10 @@ public class Evento_Atacar extends Evento {
 	}
 	
 	public void Executar() {
-		alvo.SofreAtaque(ataque);
 		Pokemon A= ativo.GetPokemon_Ativo();
 		Pokemon B= alvo.GetPokemon_Ativo();
-		System.out.println("O treinador "+ ativo.getNome()+ "atacou");
+		System.out.println("O treinador "+ ativo.getNome()+ " atacou");
 		System.out.println( A.GetNome()+" atacou "+ B.GetNome()+ " com "+ ataque.getNome() );
+		alvo.SofreAtaque(ataque);
 	}
 }

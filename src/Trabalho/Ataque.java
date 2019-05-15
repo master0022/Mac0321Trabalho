@@ -7,7 +7,7 @@ public class Ataque {
 	
 	public Ataque() {
 		Nome = GeraNomes.NomeAtaque();
-		Poder = (int)(Math.random()*4)*(int)(Math.random()*6)*(int)(Math.random()*3);
+		Poder = (int)(Math.random()*4+1)*(int)(Math.random()*6+1)*(int)(Math.random()*3+1);
 		Prioridade = (int)(Math.random()*1000);
 	}
 	public int GetPrioridade() {

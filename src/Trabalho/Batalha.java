@@ -4,9 +4,17 @@ abstract public class Batalha {
 	
 	static public boolean Acontece(Treinador treinador1, Treinador treinador2){
 		boolean acabou=false;
+		int i=1;
 		Evento acao1;
 		Evento acao2;
 		while (!acabou) {
+			System.out.println("");
+			System.out.println("Turno "+ i);
+			i++;
+			
+			System.out.println("O HP de " +treinador1.GetPokemon_Ativo().GetNome()+ " de "+ treinador1.getNome()+ " e " +treinador1.GetPokemon_Ativo().GetHP_Atual() );
+			System.out.println("O HP de " +treinador2.GetPokemon_Ativo().GetNome()+ " de "+ treinador2.getNome()+ " e "+ treinador2.GetPokemon_Ativo().GetHP_Atual() );
+			
 			acao1 = treinador1.Decidir_Acao(treinador2);
 			acao2 = treinador2.Decidir_Acao(treinador1);
 			
@@ -14,9 +22,11 @@ abstract public class Batalha {
 			else acabou = Controlador.Executa(treinador2, treinador1, acao2, acao1);
 			
 		}
-		
-		System.out.println("A batalha acabou! O vencedor e : ");
-		
+		if(treinador1.Todos_Os_Pokemons_Mortos()==true || treinador1.Fugiu()==true)
+			System.out.println("A batalha acabou! O vencedor e : "+ treinador2.getNome());
+		if(treinador2.Todos_Os_Pokemons_Mortos()==true || treinador2.Fugiu()==true)
+			System.out.println("A batalha acabou! O vencedor e : "+ treinador1.getNome());
+
 		return true;
 	}
 	

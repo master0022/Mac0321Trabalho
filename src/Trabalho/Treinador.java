@@ -46,21 +46,27 @@ public class Treinador {
 			switch (caso) {
 			
 				case 0:// treinador decide atacar
+					System.out.println("O treinador "+ nome+ " decidiu atacar !");
 					return new Evento_Atacar(this,Oponente,pokemons[pokemon_ativo].GetAtaque((int) Math.round( Math.random()*3) ));
 					
 					
 				case 1://treinador decide usar pocao
 					if (pocao.GetQuantidade() != 0) {
+						System.out.println("O treinador "+ nome+ " decidiu usar poção !");
 						return new Evento_Pocao(this, Oponente, pocao);
 					}
 					break;
 				
 				case 2://treinador decide fugir
+					System.out.println("O treinador "+ nome+ " decidiu fugir !");
 					return new Evento_Fugir(this,Oponente);
 					
 				case 3://treinador decide trocar para o proximo pokemon, E PODE trocar.
 					for (int i=0; i<no_pokemons; i++) {
-						if( pokemons[i].GetHP_Atual()>0 && i!=pokemon_ativo )return new Evento_TrocarPokemon(this,Oponente);
+						if( pokemons[i].GetHP_Atual()>0 && i!=pokemon_ativo ) {
+							System.out.println("O treinador "+ nome+ " decidiu trocar de pokemon !");
+							return new Evento_TrocarPokemon(this,Oponente);
+						}
 					}
 			}
 		}
@@ -88,14 +94,13 @@ public class Treinador {
 	
 	public void Fugir() {
 		this.FUGIU=true;
-		System.out.println("O treinador "+ nome+ " fugiu da batalha !");
 	}
 	
 	public void TrocarPokemonAtivo() {
 		int indice = (int) Math.round( Math.random()*(no_pokemons-1) );
-		while(pokemon_ativo!=indice && pokemons[indice].VerificaMorto()==false) indice = (int) Math.round( Math.random()*no_pokemons);
+		while(pokemon_ativo!=indice && pokemons[indice].VerificaMorto()==true) indice = (int) Math.round( Math.random()*no_pokemons);
 		pokemon_ativo = indice;
-		System.out.println("O treinador "+ nome+ "trocou de pokemon !");	
+		System.out.println("O treinador "+ nome+ " trocou de pokemon !");
 	}
 	
 	public boolean Fugiu() {
