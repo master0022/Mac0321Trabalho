@@ -13,10 +13,10 @@ public class Pokemon {
 		morto=false;
 		Nome= GeraNomes.NomePokemon();
 		Ataques = new Ataque[4];
+		Ataques[0]= new Ataque();
 		Ataques[1]= new Ataque();
 		Ataques[2]= new Ataque();
 		Ataques[3]= new Ataque();
-		Ataques[4]= new Ataque();
 	}
 	
 	public static Pokemon CriaPokemon() {

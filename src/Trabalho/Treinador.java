@@ -7,20 +7,22 @@ public class Treinador {
 	private Pocao pocao;
 	private boolean selvagem,pokemon_ativo_morto;
 	private int pokemon_ativo;
-
+	private boolean todos_mortos;
 	
 	private boolean FUGIU;
 	
-	private Treinador(int no_pokemons, String nome, int no_pokebolas, int no_pocoes, boolean selvagem) {
+	public Treinador(int no_pokemons, String nome, boolean selvagem) {
 		
 		this.selvagem=selvagem;
 		this.no_pokemons=no_pokemons;
 		this.nome=nome;
 		this.pokemon_ativo=0;
 		this.pokemon_ativo_morto=false;
+		this.todos_mortos=false;
 		this.FUGIU=false;
-		for ( int i= no_pokemons;i>0;i--) {
-			this.pokemons[i-1]=Pokemon.CriaPokemon();
+		this.pokemons=new Pokemon[6];
+		for ( int i= 0;i<no_pokemons;i++) {
+			this.pokemons[i]=Pokemon.CriaPokemon();
 		}
 		
 		this.pocao = new Pocao(10);//todo treinador começa com 10 pocoes.
@@ -56,7 +58,7 @@ public class Treinador {
 				case 2://treinador decide fugir
 					return new Evento_Fugir(this,Oponente);
 					
-				case 4://treinador decide trocar para o proximo pokemon, E PODE trocar.
+				case 3://treinador decide trocar para o proximo pokemon, E PODE trocar.
 					for (int i=0; i<no_pokemons; i++) {
 						if( pokemons[i].GetHP_Atual()>0 && i!=pokemon_ativo )return new Evento_TrocarPokemon(this,Oponente);
 					}
@@ -67,7 +69,17 @@ public class Treinador {
 	
 	public void SofreAtaque(Ataque ataque) {
 		pokemons[pokemon_ativo].SofreAtaque(ataque);
-		if ( pokemons[pokemon_ativo].GetHP_Atual() <= 0 )pokemon_ativo_morto=true;
+		if ( pokemons[pokemon_ativo].VerificaMorto()==true )
+			{
+			
+			this.todos_mortos=true;
+			for (int i=0; i<no_pokemons; i++) {
+				if( pokemons[i].VerificaMorto()==false  )this.todos_mortos=false;
+			}
+			
+			
+			}
+		
 	}
 	
 	public void UsaPocao(Pocao pocao) {
@@ -80,10 +92,17 @@ public class Treinador {
 	}
 	
 	public void TrocarPokemonAtivo() {
-		int indice = (int) Math.round( Math.random()*no_pokemons);
+		int indice = (int) Math.round( Math.random()*(no_pokemons-1) );
 		while(pokemon_ativo!=indice && pokemons[indice].VerificaMorto()==false) indice = (int) Math.round( Math.random()*no_pokemons);
 		pokemon_ativo = indice;
 		System.out.println("O treinador "+ nome+ "trocou de pokemon !");	
 	}
 	
+	public boolean Fugiu() {
+		return this.FUGIU;
+	}
+	
+	public boolean Todos_Os_Pokemons_Mortos() {
+		return this.todos_mortos;
+	}
 }
