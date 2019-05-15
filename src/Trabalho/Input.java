@@ -15,13 +15,27 @@ abstract public class Input {
 			
 			if ( acao.equals("1")) 
 			{
-				System.out.println(" voce decidiu ataca");
+				Pokemon a = treinador.GetPokemon_Ativo();
+				System.out.println(" Voce decidiu atacar ");
+				System.out.println(" 1- "+ a.GetAtaque(0).getNome()+ " "+a.GetAtaque(0).GetPoder()+ "\n 2- "
++ a.GetAtaque(1).getNome()+ " " +a.GetAtaque(1).GetPoder()+ "\n 3- " +a.GetAtaque(2).getNome()+ " " +a.GetAtaque(2).GetPoder()+ 
+"\n 4- " +a.GetAtaque(3).getNome()+ " "+a.GetAtaque(0).GetPoder() );
+				acao = Input.next();
+				if(acao.equals("1")) 
+				if(acao.equals("2"))
+				if(acao.equals("3"))
+				if(acao.equals("4"))
 			}
 			
 			if ( acao.equals("2")) 
 			{
-				System.out.println(" voce decidiu usa item");
+				System.out.println(" Voce decidiu usar item ");
+				System.out.println(" 1- Pokebola \n 2- Poção 30 HP "); 
+				acao = Input.next();
+				if(acao.equals("1"))
+				if(acao.equals("2"))
 			}
+			
 			
 		}
 		return null;
