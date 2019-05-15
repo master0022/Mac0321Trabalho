@@ -9,5 +9,6 @@ public class Evento_Fugir extends Evento {
 	
 	public void Executar() {
 		this.ativo.Fugir();
+		System.out.println("O treinador "+ ativo.getNome()+ " fugiu da batalha !");
 	}
 }

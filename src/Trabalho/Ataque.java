@@ -16,4 +16,8 @@ public class Ataque {
 	public int GetPoder() {
 		return Poder;
 	}
+	
+	public String getNome() {
+		return Nome;
+	}
 }

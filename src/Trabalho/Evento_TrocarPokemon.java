@@ -9,5 +9,8 @@ public class Evento_TrocarPokemon extends Evento {
 	
 	public void Executar() {
 		this.ativo.TrocarPokemonAtivo();
+		System.out.println("O treinador "+ ativo.getNome()+ " trocou de pokemon !");
+		Pokemon p= ativo.GetPokemon_Ativo();
+		System.out.println("Vai, "+ p.GetNome()+ " !");
 	}
 }

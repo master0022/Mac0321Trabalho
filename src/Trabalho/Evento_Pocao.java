@@ -9,5 +9,6 @@ public class Evento_Pocao extends Evento {
 	
 	public void Executar() {
 		this.ativo.UsaPocao(pocao);
+		System.out.println("O treinador "+ ativo.getNome()+ " utilizou poção");
 	}
 }

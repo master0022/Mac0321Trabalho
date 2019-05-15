@@ -31,6 +31,10 @@ public class Treinador {
 		return pokemons[pokemon_ativo];
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
 	public Evento Decidir_Acao(Treinador Oponente) {// precisa deixar generico, e fazer o usuario poder escolher a acao, ou ser aleatorio pra selvagem.
 		boolean decidiu = false;
 		while (decidiu==false) {

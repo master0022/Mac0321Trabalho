@@ -45,6 +45,8 @@ public class Pokemon {
 			this.HP_Atual=0;
 			this.morto=true;
 		}
+		System.out.println(Nome+ " sofreu " + ataque.GetPoder()+ " de dano !");
+		if(morto==true) System.out.println(Nome+ " fainted ");
 	}
 	
 	public void UsaPocao(Pocao pocao) {
