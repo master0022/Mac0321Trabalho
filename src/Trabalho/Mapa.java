@@ -76,7 +76,7 @@ public class Mapa {
 			System.out.print("\n");
 		}
 		
-		if ( mapa[y][x]=='#' && Math.random()*100<80) {
+		if ( mapa[y][x]=='#' && Math.random()*100<20) {
 			Treinador oponente;
 			boolean selvagem = Math.random()*10<8;
 			if (selvagem) {
