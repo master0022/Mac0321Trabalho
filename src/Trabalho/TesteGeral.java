@@ -1,21 +1,18 @@
 package Trabalho;
 
+import java.util.Scanner;
+
 public class TesteGeral {
 
 	public static void main(String[] args) {
-		int n = 2;
-		Treinador eu = new Treinador(2,"Ash",false);
-		Treinador oponente = new Treinador(3,"Nao o Ash",true);
-		while (n>1) 
-		{
-		eu = new Treinador(6,"Ash",false);
-		oponente = new Treinador(4,"Nao o Ash",true);
+		Scanner Input = new Scanner(System.in);
+		int n = 5;
+		Treinador eu = new Treinador(4,"Thales",false);
+		Mapa a = Mapa.CriaMapa();
+
 		eu.SetPlayer();
-		Batalha.Acontece(eu, oponente);
-		eu=null;
-		oponente=null;
-		n--;
-		}
+		while (true)a.update(eu,Input.next());
+		
 		
 		
 		

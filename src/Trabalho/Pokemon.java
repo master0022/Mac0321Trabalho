@@ -46,7 +46,7 @@ public class Pokemon {
 			this.morto=true;
 		}
 		System.out.println(Nome+ " sofreu " + ataque.GetPoder()+ " de dano !");
-		System.out.println(Nome+ " tem " + HP_Atual+ " de HP ");
+		System.out.println(Nome+ " tem " + HP_Atual+"/"+HP_Max +"HP ");
 		if(morto==true) System.out.println(Nome+ " fainted ");
 	}
 	

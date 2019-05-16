@@ -12,9 +12,9 @@ abstract public class Batalha {
 			System.out.println("Turno "+ i);
 			i++;
 			
-			System.out.println("O HP de " +treinador1.GetPokemon_Ativo().GetNome()+ " de "+ treinador1.getNome()+ " e " +treinador1.GetPokemon_Ativo().GetHP_Atual() );
-			if(treinador2.getSelvagem()==true) System.out.println("O HP do " +treinador2.GetPokemon_Ativo().GetNome()+ " selvagem " + treinador2.GetPokemon_Ativo().GetHP_Atual() );
-			else System.out.println("O HP de " +treinador2.GetPokemon_Ativo().GetNome()+ " de "+ treinador2.getNome()+ " e "+ treinador2.GetPokemon_Ativo().GetHP_Atual() );
+			System.out.println("O HP de " +treinador1.GetPokemon_Ativo().GetNome()+ " de "+ treinador1.getNome()+ " e : " +treinador1.GetPokemon_Ativo().GetHP_Atual()+ "/"+treinador1.GetPokemon_Ativo().GetHP_Max() );
+			if(treinador2.getSelvagem()==true) System.out.println("O HP do " +treinador2.GetPokemon_Ativo().GetNome()+ " selvagem e : " + treinador2.GetPokemon_Ativo().GetHP_Atual()+"/"+treinador2.GetPokemon_Ativo().GetHP_Max() );
+			else System.out.println("O HP de " +treinador2.GetPokemon_Ativo().GetNome()+ " de "+ treinador2.getNome()+ " e :"+ treinador2.GetPokemon_Ativo().GetHP_Atual()+"/"+treinador2.GetPokemon_Ativo().GetHP_Max() );
 			
 			acao1 = treinador1.Decidir_Acao(treinador2);
 			acao2 = treinador2.Decidir_Acao(treinador1);
@@ -25,7 +25,7 @@ abstract public class Batalha {
 		}
 		if(( treinador1.Todos_Os_Pokemons_Mortos()==true || treinador1.Fugiu()==true ) && treinador2.getSelvagem()==false)
 			System.out.println("A batalha acabou! O vencedor e : "+ treinador2.getNome());
-		if(treinador2.Todos_Os_Pokemons_Mortos()==true || treinador2.Fugiu()==true)
+		if(( treinador2.Todos_Os_Pokemons_Mortos()==true || treinador2.Fugiu()==true ) && treinador1.getSelvagem()==false)
 			System.out.println("A batalha acabou! O vencedor e : "+ treinador1.getNome());
 
 		return true;

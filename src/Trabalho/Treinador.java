@@ -8,7 +8,7 @@ public class Treinador {
 	private boolean selvagem,pokemon_ativo_morto,player;
 	private int pokemon_ativo;
 	private boolean todos_mortos;
-	
+	private boolean capiturado;
 	private boolean FUGIU;
 	
 	public Treinador(int no_pokemons, String nome, boolean selvagem) {
@@ -22,8 +22,8 @@ public class Treinador {
 		this.todos_mortos=false;
 		this.FUGIU=false;
 		this.player=false;
-		
-		this.pokemons=new Pokemon[no_pokemons];
+		this.capiturado=false;
+		this.pokemons=new Pokemon[6];
 		for ( int i= 0;i<no_pokemons;i++) {
 			this.pokemons[i]=Pokemon.CriaPokemon();
 		}
@@ -100,6 +100,17 @@ public class Treinador {
 	
 	public void UsaPocao(Pocao pocao) {
 		pokemons[pokemon_ativo].UsaPocao(pocao);
+		items[1].UsaUm();
+	}
+	
+	public void UsaPokebola() {
+		items[0].UsaUm();
+	}
+	
+	public void UsaPokebola( Pokemon capturado) {
+		items[0].UsaUm();
+		pokemons[no_pokemons]=capturado;
+		no_pokemons++;
 	}
 	
 	public void Fugir() {
@@ -147,5 +158,12 @@ public class Treinador {
 	}
 	public boolean getSelvagem() {
 		return selvagem;
+	}
+	
+	public void ForcaCapitura() {
+		this.capiturado=true;
+	}
+	public boolean Capiturado() {
+		return this.capiturado;
 	}
 }

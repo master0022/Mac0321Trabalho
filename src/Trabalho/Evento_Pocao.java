@@ -9,6 +9,6 @@ public class Evento_Pocao extends Evento {
 	
 	public void Executar() {
 		this.ativo.UsaPocao(pocao);
-		System.out.println("O treinador "+ ativo.getNome()+ " utilizou poção");
+		System.out.println(ativo.getNome()+ " usou uma pocao em " +ativo.GetPokemon_Ativo().GetNome()+", seu HP:"+ ativo.GetPokemon_Ativo().GetHP_Atual()+"/"+ativo.GetPokemon_Ativo().GetHP_Max());
 	}
 }
