@@ -13,8 +13,8 @@ public class Mapa {
 
 		tamanho_x=141;
 		tamanho_y=29;
-		x=1;
-		y=1;
+		x=8;
+		y=3;
 		// Isso foi criado com o poder do AutoHotkey, que deixou mais facil trocar caracteres, e colocar os indices numa ordem crescente
 		mapa = new char[tamanho_y][tamanho_x];
 		mapa[0]= ".............................................................................................................................................".toCharArray();
@@ -62,11 +62,12 @@ public class Mapa {
 	
 	
 	
-	public void update(Treinador Player,String Input) {
+	public boolean update(Treinador Player,String Input) {
 		if (Input.equals("w") && y!=0)y--;
 		if (Input.equals("s") && y!=tamanho_y-1)y++;
 		if (Input.equals("a") && x!=0)x--;
 		if (Input.equals("d") && x!=tamanho_x-1)x++;
+		if (Input.equals("e"))return true;
 		
 		for(int i=0;i<tamanho_y;i++) {
 			for(int j=0;j<tamanho_x;j++) {
@@ -76,9 +77,9 @@ public class Mapa {
 			System.out.print("\n");
 		}
 		
-		if ( mapa[y][x]=='#' && Math.random()*100<20) {
+		if ( mapa[y][x]=='#' && Math.random()*100<40) {
 			Treinador oponente;
-			boolean selvagem = Math.random()*10<8;
+			boolean selvagem = Math.random()*10<5;
 			if (selvagem) {
 				System.out.println("\n\n Um pokemon selvagem apareceu !");
 				oponente = new Treinador(1,"",true);
@@ -90,6 +91,8 @@ public class Mapa {
 			
 			Batalha.Acontece(Player, oponente);
 			
+			if (Player.Todos_Os_Pokemons_Mortos())return true;
+			
 			for(int i=0;i<tamanho_y;i++) {
 				for(int j=0;j<tamanho_x;j++) {
 					if (i==y && j==x)System.out.print("P");
@@ -99,7 +102,7 @@ public class Mapa {
 			}
 		}
 		
-		
+		return false;
 		
 	}
 	
